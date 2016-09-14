@@ -65,6 +65,10 @@ class DateTimePicker extends InputWidget
      * @var bool whether to render the input as an inline calendar
      */
     public $inline = false;
+    /**
+     * @var bool whether to render the input as an inline calendar
+     */
+    public $style = "";
 
     /**
      * @inheritdoc
@@ -74,7 +78,8 @@ class DateTimePicker extends InputWidget
         parent::init();
 
         Html::addCssClass($this->containerOptions, 'input-group date');
-        Html::addCssClass($this->options, 'form-control');
+        Html::addCssClass($this->options, 'form-control form-control-solid placeholder-no-fix');
+        $this->options['style'] = $this->style;
         $this->options['readonly'] = 'readonly';
         if ($this->size !== null) {
             $size = 'input-' . $this->size;
